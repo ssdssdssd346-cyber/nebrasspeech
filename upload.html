@@ -22,119 +22,124 @@
 </header>
 
 <main>
-  <div>
 
-    <section>
-      <h1>Upload Session</h1>
-      <p>Upload audio, then edit and save your transcript session.</p>
-    </section>
+  <section>
+    <h1>Upload Session</h1>
+    <p>Upload audio, then edit and save your transcript session.</p>
+  </section>
 
-    <section>
+  <section>
 
+    <!-- Status -->
+    <div>
+      <span>Status:</span>
+      <span id="statusPill">Ready</span>
+      <span id="autosavePill"></span>
+    </div>
+
+    <!-- Upload -->
+    <div>
+      <input id="audioFileInput" type="file" accept="audio/*">
+      <button id="clearAudioBtn" type="button">Clear Audio</button>
+    </div>
+
+    <div id="audioInfo"></div>
+
+    <div>
+      <audio id="audioPlayer" controls></audio>
+    </div>
+
+    <!-- Tools -->
+    <div>
+      <button id="fontMinusBtn">A-</button>
+      <button id="fontPlusBtn">A+</button>
+
+      <select id="fontFamilySelect">
+        <option value="sans">Sans</option>
+        <option value="serif">Serif</option>
+        <option value="mono">Mono</option>
+      </select>
+
+      <button id="alignLeftBtn">Left</button>
+      <button id="alignCenterBtn">Center</button>
+      <button id="alignRightBtn">Right</button>
+
+      <button id="readingModeBtn">Reading Mode</button>
+    </div>
+
+    <!-- Highlight -->
+    <div>
+      <select id="highlightSelect">
+        <option value="hl-yellow">Yellow</option>
+        <option value="hl-blue">Blue</option>
+        <option value="hl-green">Green</option>
+        <option value="hl-pink">Pink</option>
+      </select>
+
+      <button id="applyHighlightBtn">Apply Highlight</button>
+      <button id="cleanBtn">Clean Text</button>
+      <button id="copyBtn">Copy All</button>
+      <button id="saveDraftBtn">Save Draft</button>
+      <button id="clearTextBtn">Clear Text</button>
+    </div>
+
+    <!-- Find / Replace -->
+    <div>
+      <input id="findInput" type="text" placeholder="Find...">
+      <button id="findBtn">Find</button>
+      <button id="findNextBtn">Next</button>
+      <button id="clearFindBtn">Clear</button>
+
+      <input id="replaceInput" type="text" placeholder="Replace...">
+      <button id="replaceOneBtn">Replace One</button>
+      <button id="replaceAllBtn">Replace All</button>
+    </div>
+
+    <!-- Translation -->
+    <div>
+      <label for="translateLang">Translate</label>
+      <select id="translateLang">
+        <option value="en">English</option>
+        <option value="ar">Arabic</option>
+        <option value="fr">French</option>
+        <option value="es">Spanish</option>
+        <option value="de">German</option>
+        <option value="tr">Turkish</option>
+      </select>
+
+      <button id="translateBtn" type="button">Translate</button>
+      <button id="clearTranslateBtn" type="button">Hide Translation</button>
+    </div>
+
+    <!-- Editors -->
+    <div>
       <div>
-        <span>Status:</span>
-        <span id="statusPill">Ready</span>
-        <span id="autosavePill"></span>
+        <label>Original Text</label>
+        <div id="editor" contenteditable="true"></div>
       </div>
 
-    
-      <div>
-        <input id="audioFileInput" type="file" accept="audio/*">
-        <button id="clearAudioBtn" type="button">Clear Audio</button>
+      <div id="translateBox" style="display:none">
+        <label>Translation</label>
+        <div id="translatedEditor"></div>
       </div>
+    </div>
 
-      <div id="audioInfo"></div>
+    <!-- Counters -->
+    <div>
+      <span id="wordCount">Words: 0</span>
+      <span id="charCount">Chars: 0</span>
+    </div>
 
-      <div>
-        <audio id="audioPlayer" controls></audio>
-      </div>
+    <!-- Save -->
+    <div>
+      <input id="sessionTitle" type="text" placeholder="Session title">
+      <button id="saveSessionBtn" type="button">Save Session</button>
+    </div>
 
-    
-      <div>
-        <button id="fontMinusBtn">A-</button>
-        <button id="fontPlusBtn">A+</button>
+    <div id="messageBox"></div>
 
-        <select id="fontFamilySelect">
-          <option value="sans">Sans</option>
-          <option value="serif">Serif</option>
-          <option value="mono">Mono</option>
-        </select>
+  </section>
 
-        <button id="alignLeftBtn">Left</button>
-        <button id="alignCenterBtn">Center</button>
-        <button id="alignRightBtn">Right</button>
-
-        <button id="readingModeBtn">Reading Mode</button>
-      </div>
-
-      <div>
-        <select id="highlightSelect">
-          <option value="hl-yellow">Highlight Yellow</option>
-          <option value="hl-blue">Highlight Blue</option>
-          <option value="hl-green">Highlight Green</option>
-          <option value="hl-pink">Highlight Pink</option>
-        </select>
-
-        <button id="applyHighlightBtn">Apply Highlight</button>
-        <button id="cleanBtn">Clean Text</button>
-        <button id="copyBtn">Copy All</button>
-        <button id="saveDraftBtn">Save Draft</button>
-        <button id="clearTextBtn">Clear Text</button>
-      </div>
-
-      <div>
-        <input id="findInput" type="text" placeholder="Find...">
-        <button id="findBtn">Find</button>
-        <button id="findNextBtn">Find Next</button>
-        <button id="clearFindBtn">Clear Find</button>
-
-        <input id="replaceInput" type="text" placeholder="Replace with...">
-        <button id="replaceOneBtn">Replace One</button>
-        <button id="replaceAllBtn">Replace All</button>
-      </div>
-
-      <div>
-        <select id="translateLang">
-          <option value="en">Translate to English</option>
-          <option value="ar">Translate to Arabic</option>
-          <option value="fr">French</option>
-          <option value="es">Spanish</option>
-          <option value="de">German</option>
-          <option value="tr">Turkish</option>
-        </select>
-
-        <button id="translateBtn">Translate</button>
-        <button id="clearTranslateBtn" style="display:none">Hide</button>
-      </div>
-
-     
-      <div>
-        <div>
-          <label>Original Text</label>
-          <div id="editor" contenteditable="true"></div>
-        </div>
-
-        <div id="translateBox" style="display:none">
-          <label>Translation</label>
-          <div id="translatedEditor"></div>
-        </div>
-      </div>
-
-      <div>
-        <span id="wordCount">Words: 0</span>
-        <span id="charCount">Chars: 0</span>
-      </div>
-
-      <div>
-        <input id="sessionTitle" type="text" placeholder="Session title">
-        <button id="saveSessionBtn">Save Session</button>
-      </div>
-
-      <div id="messageBox"></div>
-
-    </section>
-
-  </div>
 </main>
 
 <footer>
@@ -146,4 +151,3 @@
 
 </body>
 </html>
-
