@@ -14,14 +14,15 @@
     <div><a href="/dashboard">Nebras</a></div>
     <nav>
       <a href="/dashboard">Dashboard</a>
-      <a href="/live">Live</a>
-      <a href="/upload">Upload</a>
+      <a href="/live-page">Live</a>
+      <a href="/upload-page">Upload</a>
       <button id="logoutBtn" type="button">Logout</button>
     </nav>
   </div>
 </header>
 
 <main>
+
   <section>
     <h1>Sessions</h1>
     <p>Open, edit, update, and delete your saved sessions.</p>
@@ -35,7 +36,6 @@
 
       <input id="filterInput" type="text" placeholder="Filter by title...">
       <button id="clearFilterBtn" type="button">Clear</button>
-
       <button id="refreshBtn" type="button">Refresh</button>
 
       <ul id="sessionsList"></ul>
@@ -44,14 +44,16 @@
 
     <!-- Editor -->
     <div>
+
       <h2>Session Editor</h2>
+      <span id="activeSessionMeta"></span>
 
       <input id="sessionTitleInput" type="text" placeholder="Session title">
 
       <button id="updateSessionBtn" type="button" disabled>Update</button>
       <button id="exportTxtBtn" type="button" disabled>Export TXT</button>
 
-      <!-- أدوات بسيطة -->
+      <!-- أدوات الخط -->
       <div>
         <button id="fontMinusBtn">A-</button>
         <button id="fontPlusBtn">A+</button>
@@ -65,9 +67,38 @@
         <button id="alignLeftBtn">Left</button>
         <button id="alignCenterBtn">Center</button>
         <button id="alignRightBtn">Right</button>
+
+        <button id="readingModeBtn">Reading Mode</button>
       </div>
 
-      <!-- ترجمة (فقط لغات) -->
+      <!-- هايلايت -->
+      <div>
+        <select id="highlightSelect">
+          <option value="hl-yellow">Yellow</option>
+          <option value="hl-blue">Blue</option>
+          <option value="hl-green">Green</option>
+          <option value="hl-pink">Pink</option>
+        </select>
+
+        <button id="applyHighlightBtn">Highlight</button>
+        <button id="cleanBtn">Clean</button>
+        <button id="copyBtn">Copy</button>
+        <button id="clearTextBtn">Clear</button>
+      </div>
+
+      <!-- بحث -->
+      <div>
+        <input id="findInput" type="text" placeholder="Find...">
+        <button id="findBtn">Find</button>
+        <button id="findNextBtn">Next</button>
+        <button id="clearFindBtn">Clear</button>
+
+        <input id="replaceInput" type="text" placeholder="Replace...">
+        <button id="replaceOneBtn">Replace</button>
+        <button id="replaceAllBtn">Replace All</button>
+      </div>
+
+      <!-- الترجمة -->
       <div>
         <select id="translateLang">
           <option value="en">English</option>
@@ -79,23 +110,33 @@
         </select>
 
         <button id="translateBtn" type="button">Translate</button>
+        <button id="clearTranslateBtn" type="button">Hide Translation</button>
       </div>
 
-      <!-- النص -->
+      <!-- Editor -->
       <div>
         <label>Editor</label>
         <div id="editor" contenteditable="true"></div>
       </div>
 
+      <!-- Translation output -->
+      <div>
+        <label>Translation</label>
+        <div id="translatedEditor"></div>
+      </div>
+
+      <!-- Counters -->
       <div>
         <span id="wordCount">Words: 0</span>
         <span id="charCount">Chars: 0</span>
       </div>
 
       <div id="viewerMessageBox"></div>
+
     </div>
 
   </section>
+
 </main>
 
 <footer>
