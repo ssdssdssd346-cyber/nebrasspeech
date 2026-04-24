@@ -22,103 +22,80 @@
 </header>
 
 <main>
-  <div>
+  <section>
+    <h1>Sessions</h1>
+    <p>Open, edit, update, and delete your saved sessions.</p>
+  </section>
 
-    <section>
-      <h1>Sessions</h1>
-      <p>Open, edit, update, and delete your saved sessions.</p>
-    </section>
+  <section>
 
-    <section>
+    <!-- Sessions List -->
+    <div>
+      <h2>Your Sessions</h2>
 
+      <input id="filterInput" type="text" placeholder="Filter by title...">
+      <button id="clearFilterBtn" type="button">Clear</button>
+
+      <button id="refreshBtn" type="button">Refresh</button>
+
+      <ul id="sessionsList"></ul>
+      <div id="listMessageBox"></div>
+    </div>
+
+    <!-- Editor -->
+    <div>
+      <h2>Session Editor</h2>
+
+      <input id="sessionTitleInput" type="text" placeholder="Session title">
+
+      <button id="updateSessionBtn" type="button" disabled>Update</button>
+      <button id="exportTxtBtn" type="button" disabled>Export TXT</button>
+
+      <!-- أدوات بسيطة -->
       <div>
-        <div>
-          <h2>Your Sessions</h2>
-          <button id="refreshBtn" type="button">Refresh</button>
-        </div>
+        <button id="fontMinusBtn">A-</button>
+        <button id="fontPlusBtn">A+</button>
 
-        <div>
-          <input id="filterInput" type="text" placeholder="Filter by title...">
-          <button id="clearFilterBtn" type="button">Clear</button>
-        </div>
+        <select id="fontFamilySelect">
+          <option value="sans">Sans</option>
+          <option value="serif">Serif</option>
+          <option value="mono">Mono</option>
+        </select>
 
-        <ul id="sessionsList"></ul>
+        <button id="alignLeftBtn">Left</button>
+        <button id="alignCenterBtn">Center</button>
+        <button id="alignRightBtn">Right</button>
+      </div>
 
-        <div id="listMessageBox"></div>
+      <!-- ترجمة (فقط لغات) -->
+      <div>
+        <select id="translateLang">
+          <option value="en">English</option>
+          <option value="ar">Arabic</option>
+          <option value="fr">French</option>
+          <option value="es">Spanish</option>
+          <option value="de">German</option>
+          <option value="tr">Turkish</option>
+        </select>
+
+        <button id="translateBtn" type="button">Translate</button>
+      </div>
+
+      <!-- النص -->
+      <div>
+        <label>Editor</label>
+        <div id="editor" contenteditable="true"></div>
       </div>
 
       <div>
-        <div>
-          <h2>Session Editor</h2>
-          <span id="activeSessionMeta"></span>
-        </div>
-
-        <div>
-          <input id="sessionTitleInput" type="text" placeholder="Session title">
-          <button id="updateSessionBtn" disabled>Update</button>
-          <button id="exportTxtBtn" disabled>Export TXT</button>
-        </div>
-
-        <div>
-          <button id="fontMinusBtn">A-</button>
-          <button id="fontPlusBtn">A+</button>
-
-          <select id="fontFamilySelect">
-            <option value="sans">Sans</option>
-            <option value="serif">Serif</option>
-            <option value="mono">Mono</option>
-          </select>
-
-          <button id="alignLeftBtn">Left</button>
-          <button id="alignCenterBtn">Center</button>
-          <button id="alignRightBtn">Right</button>
-
-          <button id="readingModeBtn">Reading Mode</button>
-        </div>
-
-        <div>
-          <select id="highlightSelect">
-            <option value="hl-yellow">Highlight Yellow</option>
-            <option value="hl-blue">Highlight Blue</option>
-            <option value="hl-green">Highlight Green</option>
-            <option value="hl-pink">Highlight Pink</option>
-          </select>
-
-          <button id="applyHighlightBtn">Apply Highlight</button>
-          <button id="cleanBtn">Clean Text</button>
-          <button id="copyBtn">Copy All</button>
-          <button id="clearTextBtn">Clear Text</button>
-        </div>
-
-        <div>
-          <input id="findInput" type="text" placeholder="Find...">
-          <button id="findBtn">Find</button>
-          <button id="findNextBtn">Find Next</button>
-          <button id="clearFindBtn">Clear Find</button>
-
-          <input id="replaceInput" type="text" placeholder="Replace with...">
-
-          <button id="replaceOneBtn">Replace One</button>
-          <button id="replaceAllBtn">Replace All</button>
-        </div>
-
-        <div>
-          <label>Editor</label>
-          <div id="editor" contenteditable="true"></div>
-        </div>
-
-        <div>
-          <span id="wordCount">Words: 0</span>
-          <span id="charCount">Chars: 0</span>
-        </div>
-
-        <div id="viewerMessageBox"></div>
-
+        <span id="wordCount">Words: 0</span>
+        <span id="charCount">Chars: 0</span>
       </div>
 
-    </section>
+      <div id="viewerMessageBox"></div>
+    </div>
 
-  </div>
+  </section>
 </main>
 
 <footer>
